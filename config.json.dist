@@ -16,5 +16,7 @@
                 "charset": "utf8"
             }
         },
+        "recognizers": [],
+        "persistence": []
     }
 }
