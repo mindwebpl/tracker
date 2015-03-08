@@ -1,0 +1,20 @@
+{
+    "tracker": {
+        "debug": "true",
+        "db": {
+            "type": {
+                "vendor": "Mindweb",
+                "namespace": "DbMysql",
+                "name": "MysqlConnection"
+            },
+            "mysql": {
+                "driver": "pdo_mysql",
+                "host": "localhost",
+                "dbname": "database_name",
+                "user": "user",
+                "password": "password",
+                "charset": "utf8"
+            }
+        },
+    }
+}
