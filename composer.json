@@ -16,5 +16,10 @@
         "mindweb/db": "1.0.*",
         "mindweb/db-mysql": "1.0.*",
         "silex/silex": "~1.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mindweb\\Tracker\\": "src"
+        }
     }
 }

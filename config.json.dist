@@ -7,7 +7,7 @@
                 "namespace": "DbMysql",
                 "name": "MysqlConnection"
             },
-            "mysql": {
+            "adapter": {
                 "driver": "pdo_mysql",
                 "host": "localhost",
                 "dbname": "database_name",
