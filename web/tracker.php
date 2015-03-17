@@ -23,9 +23,9 @@ $app['tracker.connection'] = $app->share(function () use ($app) {
 });
 
 $app['log.repository'] = $app->share(function () use ($app) {
-    $logRepositoryFactory = new Log\Repository\Factory();
+    $logRepositoryFactory = new Log\Repository\Factory($app['tracker.connection']);
 
-    return $logRepositoryFactory->get($app['tracker.connection'], 'log');
+    return $logRepositoryFactory->get('log');
 });
 
 $app['debug'] = $app->share(function () use ($app) {

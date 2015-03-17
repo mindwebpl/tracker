@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e205b1bb06f50632bff587ed79bea5a6",
+    "hash": "ce0bf1944976ce39d905b16a7aea5c4a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -709,16 +709,16 @@
         },
         {
             "name": "mindweb/db",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/czolnowski/db.git",
-                "reference": "f8b496220c8b881dd6dbde6ac362f40eee03383a"
+                "reference": "1cc154447f27383519303510eaf9105c7bd21907"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/czolnowski/db/zipball/f8b496220c8b881dd6dbde6ac362f40eee03383a",
-                "reference": "f8b496220c8b881dd6dbde6ac362f40eee03383a",
+                "url": "https://api.github.com/repos/czolnowski/db/zipball/1cc154447f27383519303510eaf9105c7bd21907",
+                "reference": "1cc154447f27383519303510eaf9105c7bd21907",
                 "shasum": ""
             },
             "require": {
@@ -740,7 +740,7 @@
                     "email": "marcin@czolnowski.net"
                 }
             ],
-            "time": "2015-03-08 20:00:27"
+            "time": "2015-03-08 22:32:11"
         },
         {
             "name": "mindweb/db-mysql",
@@ -781,20 +781,19 @@
         },
         {
             "name": "mindweb/log",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/czolnowski/log.git",
-                "reference": "89200fac19d2c1ff5ba76e9f8111c91d69d9b6c9"
+                "reference": "79e4bb1844077cc7d10c1e96173b091e7c84c458"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/czolnowski/log/zipball/89200fac19d2c1ff5ba76e9f8111c91d69d9b6c9",
-                "reference": "89200fac19d2c1ff5ba76e9f8111c91d69d9b6c9",
+                "url": "https://api.github.com/repos/czolnowski/log/zipball/79e4bb1844077cc7d10c1e96173b091e7c84c458",
+                "reference": "79e4bb1844077cc7d10c1e96173b091e7c84c458",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "~2.2",
                 "mindweb/db": "1.0.*"
             },
             "type": "library",
@@ -813,7 +812,44 @@
                     "email": "marcin@czolnowski.net"
                 }
             ],
-            "time": "2015-03-08 11:05:07"
+            "time": "2015-03-17 00:58:59"
+        },
+        {
+            "name": "mindweb/log-mysql",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/czolnowski/log-mysql.git",
+                "reference": "f1f358b141e6345bc3c45beeef78ad5341b6c0e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/czolnowski/log-mysql/zipball/f1f358b141e6345bc3c45beeef78ad5341b6c0e8",
+                "reference": "f1f358b141e6345bc3c45beeef78ad5341b6c0e8",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "~2.2",
+                "mindweb/db": "1.0.*",
+                "mindweb/log": "1.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mindweb\\LogMysql\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Czołnowski",
+                    "email": "marcin@czolnowski.net"
+                }
+            ],
+            "time": "2015-03-17 00:53:14"
         },
         {
             "name": "phpcollection/phpcollection",

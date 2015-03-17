@@ -13,6 +13,7 @@
         "mindweb/config": "1.0.*",
         "mindweb/config-json": "1.0.*",
         "mindweb/log": "1.0.*",
+        "mindweb/log-mysql": "1.0.*",
         "mindweb/db": "1.0.*",
         "mindweb/db-mysql": "1.0.*",
         "silex/silex": "~1.2"
