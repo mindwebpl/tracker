@@ -1,44 +1,58 @@
 <?php
 
+$startTime = microtime(true);
+
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Mindweb\Log;
 use Mindweb\Config;
-use Mindweb\Db;
 use Mindweb\Tracker\Controller\TrackController;
+use Mindweb\Tracker\Loader\SubscribersLoader;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 $app = new Silex\Application();
-$app->register(new Silex\Provider\ServiceControllerServiceProvider());
+$app['startTime'] = $app->share(function () use ($startTime) {
+    return $startTime;
+});
 
 $app['configuration'] = $app->share(function () {
-    return Config\ConfigurationFactory::factory('Mindweb', 'ConfigJson', '../config.json');
-});
-
-$app['tracker.connection'] = $app->share(function () use ($app) {
-    return Db\ConnectionFactory::create(
-        $app['configuration'],
-        'tracker.db.type',
-        'tracker.db.adapter'
+    return Config\ConfigurationFactory::factory(
+        'Mindweb',
+        'ConfigJson',
+        '../config.json'
     );
-});
-
-$app['log.repository'] = $app->share(function () use ($app) {
-    $logRepositoryFactory = new Log\Repository\Factory($app['tracker.connection']);
-
-    return $logRepositoryFactory->get('log');
 });
 
 $app['debug'] = $app->share(function () use ($app) {
     return $app['configuration']->get('tracker.debug') === 'true';
 });
 
-$app['track.controller'] = $app->share(function() use ($app) {
-    return new TrackController(
-        $app['log.repository'],
-        $app['configuration']->get('tracker.recognizers'),
-        $app['configuration']->get('tracker.persistence')
+$app['subscribers_loader'] = $app->share(function () use ($app) {
+    /**
+     * @var Config\Configuration $configuration
+     */
+    $configuration = $app['configuration'];
+
+    /**
+     * @var EventDispatcherInterface $dispatcher
+     */
+    $dispatcher = $app['dispatcher'];
+
+    return new SubscribersLoader(
+        $configuration,
+        $dispatcher,
+        array_keys(
+            $configuration->get('tracker.subscribers')
+        ),
+        'tracker.subscribers'
     );
 });
 
+$app['track.controller'] = $app->share(function() use ($app) {
+    $app['subscribers_loader']->load($app);
+
+    return new TrackController();
+});
+
+$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app->get('/', 'track.controller:indexAction');
 $app->run();

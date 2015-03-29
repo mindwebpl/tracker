@@ -1,57 +1,45 @@
 <?php
 namespace Mindweb\Tracker\Controller;
 
-use Mindweb\Log\Repository\LogRepository;
+use Mindweb\Recognizer\Recognizer;
+use Mindweb\Recognizer\Event\AttributionEvent;
+use Mindweb\Persist\Persist;
+use Mindweb\Persist\Event\PersistEvent;
+use Mindweb\Resolve\Resolve;
+use Mindweb\Resolve\Event\ResolveEvent;
 use Silex\Application;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TrackController
 {
     /**
-     * @var LogRepository
-     */
-    private $logRepository;
-
-    /**
-     * @param LogRepository $logRepository
-     * @param array $recognizers
-     * @param array $persistence
-     */
-    public function __construct(LogRepository $logRepository, array $recognizers, array $persistence)
-    {
-        $this->logRepository = $logRepository;
-    }
-
-    /**
      * @param Application $app
      * @return Response
      */
     public function indexAction(Application $app)
     {
-        $start = microtime(true);
+        /**
+         * @var EventDispatcherInterface $dispatcher
+         */
+        $dispatcher = $app['dispatcher'];
 
         /**
          * @var Request $request
          */
         $request = $app['request'];
 
-        $userAgent = $request->headers->get('User-Agent');
-        $referrerUrl = $request->get('referrer');
-        $returning = $request->get('returning') === '1';
-        $actionTime = gmdate('Y-m-d H:i:s');
+        $attributionEvent = new AttributionEvent($request);
+        $dispatcher->dispatch(Recognizer::RECOGNIZE_EVENT, $attributionEvent);
 
-        $this->logRepository->insert(
-            $actionTime,
-            array(
-                $userAgent,
-                $referrerUrl,
-                $returning
-            )
-        );
+        $persistEvent = new PersistEvent($attributionEvent);
+        $dispatcher->dispatch(Persist::PERSIST_EVENT, $persistEvent);
 
-        $executionTime = (microtime(true) - $start) * 1000;
+        $response = new Response();
+        $resolveEvent = new ResolveEvent($attributionEvent, $response);
+        $dispatcher->dispatch(Resolve::RESOLVE_EVENT, $resolveEvent);
 
-        return new Response($executionTime);
+        return $response;
     }
 } 
