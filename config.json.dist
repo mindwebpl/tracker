@@ -22,11 +22,22 @@
         },
         "subscribers": {
             "recognizers": [
+                "Mindweb\\StandardRecognizers\\ConfigsRecognizer",
                 "Mindweb\\StandardRecognizers\\UserAgentFromHeaderRecognizer",
                 "Mindweb\\StandardRecognizers\\ReferrerFromUrlRecognizer",
                 "Mindweb\\StandardRecognizers\\ReturningFromUrlRecognizer",
                 "Mindweb\\StandardRecognizers\\UUIDRecognizer",
-                "Mindweb\\StandardRecognizers\\UTCDateRecognizer"
+                "Mindweb\\StandardRecognizers\\UTCDateRecognizer",
+                "Mindweb\\StandardRecognizers\\RecRequiredRecognizer",
+                "Mindweb\\StandardRecognizers\\UrlRecognizer",
+                "Mindweb\\StandardRecognizers\\SiteRecognizer",
+                "Mindweb\\StandardRecognizers\\TitleRecognizer",
+                "Mindweb\\StandardRecognizers\\UserIdRecognizer",
+                "Mindweb\\StandardRecognizers\\UserLanguageFromHeaderRecognizer",
+                "Mindweb\\StandardRecognizers\\ResolutionRecognizer",
+                "Mindweb\\StandardRecognizers\\IpFromHeaderRecognizer",
+                "Mindweb\\StandardRecognizers\\LocalTimeRecognizer",
+                "Mindweb\\StandardRecognizers\\EngagementRecognizer"
             ],
             "persistence": [],
             "resolvers": [

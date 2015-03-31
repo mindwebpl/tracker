@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aee3d07b2cb7e32a0935140d0227ec89",
+    "hash": "b5b8446b1671608fd92673c4f1c578d4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -286,6 +286,60 @@
             "time": "2014-03-18 08:39:00"
         },
         {
+            "name": "league/url",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/url.git",
+                "reference": "a096be483bec9abcae34f4e21ec74696f7beed55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/url/zipball/a096be483bec9abcae34f4e21ec74696f7beed55",
+                "reference": "a096be483bec9abcae34f4e21ec74696f7beed55",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0",
+                "true/punycode": "~1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Url\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "League/url is a lightweight PHP Url manipulating library",
+            "homepage": "http://url.thephpleague.com",
+            "keywords": [
+                "parse_url",
+                "php",
+                "url"
+            ],
+            "time": "2015-03-26 10:07:42"
+        },
+        {
             "name": "mindweb/config",
             "version": "1.0.2",
             "source": {
@@ -391,16 +445,16 @@
         },
         {
             "name": "mindweb/recognizer",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mindwebpl/recognizer.git",
-                "reference": "f0584848de8b0185b8483b9fb77502e6e0af3c0e"
+                "reference": "3f7f0ba5f3e8f17cf05a1576b0b1ef40501a192b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mindwebpl/recognizer/zipball/f0584848de8b0185b8483b9fb77502e6e0af3c0e",
-                "reference": "f0584848de8b0185b8483b9fb77502e6e0af3c0e",
+                "url": "https://api.github.com/repos/mindwebpl/recognizer/zipball/3f7f0ba5f3e8f17cf05a1576b0b1ef40501a192b",
+                "reference": "3f7f0ba5f3e8f17cf05a1576b0b1ef40501a192b",
                 "shasum": ""
             },
             "require": {
@@ -423,7 +477,7 @@
                     "email": "marcin@czolnowski.net"
                 }
             ],
-            "time": "2015-03-29 19:34:20"
+            "time": "2015-03-30 20:44:44"
         },
         {
             "name": "mindweb/resolve",
@@ -464,21 +518,22 @@
         },
         {
             "name": "mindweb/standard-recognizers",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mindwebpl/standard-recognizers.git",
-                "reference": "9280ccb4f3120984e1007256f448f3258d10ad16"
+                "reference": "f8b5f1c165df76084656cc63986f3adfc090e505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mindwebpl/standard-recognizers/zipball/9280ccb4f3120984e1007256f448f3258d10ad16",
-                "reference": "9280ccb4f3120984e1007256f448f3258d10ad16",
+                "url": "https://api.github.com/repos/mindwebpl/standard-recognizers/zipball/f8b5f1c165df76084656cc63986f3adfc090e505",
+                "reference": "f8b5f1c165df76084656cc63986f3adfc090e505",
                 "shasum": ""
             },
             "require": {
+                "league/url": "~3.3",
                 "mindweb/config": "1.0.*",
-                "mindweb/recognizer": "1.0.*",
+                "mindweb/recognizer": ">=1.0.1",
                 "pimple/pimple": "~1.0"
             },
             "type": "library",
@@ -497,7 +552,7 @@
                     "email": "marcin@czolnowski.net"
                 }
             ],
-            "time": "2015-03-29 20:26:22"
+            "time": "2015-03-31 22:28:31"
         },
         {
             "name": "mindweb/standard-resolvers",
@@ -1120,6 +1175,53 @@
                 "url"
             ],
             "time": "2015-03-13 17:37:22"
+        },
+        {
+            "name": "true/punycode",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/true/php-punycode.git",
+                "reference": "21c0025130b4e2b2d0b7dbe5f86e9e1512507656"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/21c0025130b4e2b2d0b7dbe5f86e9e1512507656",
+                "reference": "21c0025130b4e2b2d0b7dbe5f86e9e1512507656",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.x",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "True\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Renan Gonçalves",
+                    "email": "renan.saddam@gmail.com"
+                }
+            ],
+            "description": "A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)",
+            "homepage": "https://github.com/true/php-punycode",
+            "keywords": [
+                "idna",
+                "punycode"
+            ],
+            "time": "2015-03-12 16:49:35"
         }
     ],
     "packages-dev": [],
