@@ -1,0 +1,32 @@
+{
+    "resque_persist": {
+        "host": "127.0.0.1"
+    },
+
+    "subscribers": {
+        "recognizers": [
+            "Mindweb\\StandardRecognizers\\ConfigsRecognizer",
+            "Mindweb\\StandardRecognizers\\UserAgentFromHeaderRecognizer",
+            "Mindweb\\StandardRecognizers\\ReferrerFromUrlRecognizer",
+            "Mindweb\\StandardRecognizers\\ReturningFromUrlRecognizer",
+            "Mindweb\\StandardRecognizers\\UUIDRecognizer",
+            "Mindweb\\StandardRecognizers\\UTCDateRecognizer",
+            "Mindweb\\StandardRecognizers\\RecRequiredRecognizer",
+            "Mindweb\\StandardRecognizers\\UrlRecognizer",
+            "Mindweb\\StandardRecognizers\\SiteRecognizer",
+            "Mindweb\\StandardRecognizers\\TitleRecognizer",
+            "Mindweb\\StandardRecognizers\\UserIdRecognizer",
+            "Mindweb\\StandardRecognizers\\UserLanguageFromHeaderRecognizer",
+            "Mindweb\\StandardRecognizers\\ResolutionRecognizer",
+            "Mindweb\\StandardRecognizers\\IpFromHeaderRecognizer",
+            "Mindweb\\StandardRecognizers\\LocalTimeRecognizer",
+            "Mindweb\\StandardRecognizers\\EngagementRecognizer"
+        ],
+        "resolvers": [
+            "Mindweb\\StandardResolvers\\PersistResultsResolve"
+        ],
+        "persist": [
+            "Mindweb\\ResquePersist\\Persist"
+        ]
+    }
+}

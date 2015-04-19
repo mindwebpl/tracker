@@ -1,3 +1,4 @@
 vendor
-config.json
+app/config/config_prod.json
+app/cache/*
 .idea
